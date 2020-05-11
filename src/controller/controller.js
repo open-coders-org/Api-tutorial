@@ -1,6 +1,7 @@
 'use strict'
 const {db} = require('../DB/database')
 const {get_hash} = require('../crypt/bcrypt-hash')
+
 let save_user = async function (req,res) {
     try {
         let {username , pass , rol} = req.body
@@ -38,8 +39,7 @@ let delete_user = async function(req,res){
     }catch(err){
         return res.status(500).send({err})
     }
-    console.log(req.params);
-    return res.status(200).send({message: 'delete ok'})
+   
 }
 
 let list_user = async function(req,res){
