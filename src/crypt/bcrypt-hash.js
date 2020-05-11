@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
  * @returns { hash of text plain} hash
  * @description {} 
  */
+
 let get_hash = function (plain_text) {
     try{
         let hash = bcrypt.hashSync(plain_text,10)
