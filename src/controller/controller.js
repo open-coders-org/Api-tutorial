@@ -6,7 +6,6 @@ let save_user = async function (req,res) {
         let {username , pass , rol} = req.body
         if (!username || !pass || !rol) return res.status(400).send({ok : false,message : 'faltan datos'})
         let hash = get_hash(pass)
-        console.log(hash);
         
         let result = await  db.query('INSERT INTO user (username,pass,rol) values (?,?,?)',[username,hash,rol])
         return res.status(201).send({message :  "test in save user"})
@@ -20,6 +19,7 @@ let save_user = async function (req,res) {
     }
     
 }
+
 
 let delete_user = async function(req,res){
     let {id} = req.params
@@ -96,11 +96,11 @@ let update_user = async function(req,res){
 }
 
 
-
 module.exports = {
     save_user,
     delete_user,
     list_user,
     search_user,
     update_user
+
 }

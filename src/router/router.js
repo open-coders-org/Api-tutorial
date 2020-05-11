@@ -9,8 +9,6 @@ router.get('/user',controller.list_user)
 router.get('/user/:id',controller.search_user)
 router.put('/user/:id',controller.update_user)
 
-
-
 module.exports = {
     router
 }
