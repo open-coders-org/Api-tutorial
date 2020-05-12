@@ -11,7 +11,7 @@ let login = async function (req,res){
         let query = await db.query('select id, username, pass , rol from user where username = ?',[username, pass])
         let data = query[0][0]
         bcrypt.compare(pass, data.pass, (err , result) => {
-            if (err) return res.status(301).send({
+            if (err) return res.status(401).send({
                 ok : false,
                 message : 'acceso denegado'
             })
